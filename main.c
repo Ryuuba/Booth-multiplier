@@ -1,27 +1,25 @@
-#include <stdint.h>
-
 /**
  * @brief This function computes the product of two 16-bit integers by means
  * of the Booth algorithm 
  * 
  * @param m the multiplicand
  * @param q the multiplier
- * @return int32_t the product of the multiplication
+ * @return int the product of the multiplication
  */
-int32_t booth_multiplier(int16_t, int16_t);
+int booth_multiplier(int, int);
 
 int main()
 {
-    int16_t multiplicand = -1000, multiplier = 1000;
-    int32_t result = booth_multiplier(multiplicand, multiplier);
+    int multiplicand = -1000, multiplier = 1000;
+    int result = booth_multiplier(multiplicand, multiplier);
     return 0;
 }
 
-int32_t booth_multiplier(int16_t m, int16_t q)
+int booth_multiplier(int m, int q)
 {
-    int8_t counter = 8;
-    int32_t result = 0x0000FFFF & q;
-    int32_t booth_modifier = (0x00000003 & result) << 1;
+    int counter = 8;
+    int result = 0x0000FFFF & q;
+    int booth_modifier = (0x00000003 & result) << 1;
     while (counter > 0)
     {
         result = result >> 1;
