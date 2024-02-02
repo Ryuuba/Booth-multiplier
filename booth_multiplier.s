@@ -113,6 +113,7 @@ L1: # counter > 0
     lw   ra, 32(sp)
     lw   fp, 28(sp)
     addi sp, sp, 32
+L:  j L
     ret
 
 
